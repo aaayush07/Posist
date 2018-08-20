@@ -1,0 +1,139 @@
+public class NodeCreation{
+    protected class information{
+        private String ownerName;
+        private String address;
+        private long mobileNo;
+        private long phoneNo;
+        private float value;
+        //setters
+        public void setName(String ownerName){
+            this.ownerName = ownerName;
+        }
+        public void setAddress(String address){
+            this.address = address;
+        }
+        public void setMobileNo(long mobileNo){
+            this.mobileNo = mobileNo;
+        }
+        public void setPhoneNo(long phoneNo){
+            this.phoneNo = phoneNo;
+        }
+        public void setValue(float value){
+            this.value = value;
+        }
+        
+        //getters
+        public String getName(){
+            return ownerName;
+        }
+        public String getAddress(){
+            return address;
+        }
+        public long getMobileNo(){
+            return mobileNo;
+        }
+        public long getPhoneNo(){
+            return phoneNo;
+        }
+        public float getValue(){
+            return value;
+        }
+    }
+    public class createNode extend Date{
+        Date date;
+        information data;
+        long nodeId;
+        long nodeNumber;
+        createNode referenceNodeId;
+        ArrayList<long> childNodeId;
+        createNode referenceChildNode;
+        
+        //9 find longest chain
+        public void createNode findLargest(createNode parent){
+            
+        }
+        
+        
+        
+        
+        
+        //10 mergee to different node set obj1 is bigger
+        public createNode merger(createNode obj1 , createNode obj2){
+            obj2.referenceNodeId = obj1;
+            obj1.nodeNumber += obj2.nodeNumber;
+            return obj1;
+        }
+        //6 
+        public void breakUpNode(){
+            
+        }
+        
+        //NodeId generation method
+        //e
+        public long nodeIdGenereator(boolean firstTime){
+            //we could implemnet any pattern generating algorithm that could generate a pattern using database primary key value
+            if(!firstTime){
+                        
+            }
+            else{
+                
+            }
+        }
+        
+        //1 create first Node
+        public createNode createFirstNode(String name, String address , long mobileNo , long phoneNo , float value){
+            createNode obj = new createNode();
+            obj.date = new Date().getCurrentDate();
+            obj.data.setName(name);
+            obj.data.setAddress(address);
+            obj.data.setPhoneNo(phoneNo);
+            obj.data.setMobileNo(mobileNo);
+            obj.data.setValue(value);
+            obj.nodeId = generateNodeId(0);
+            obj.nodeNumber = generateNodeNumber();
+            obj.referenceNodeId = null;
+            obj.referenceChildNode = null;
+            return obj;
+            //returning refernce of the parent pointer
+        }
+        
+        //2 to Create multi set of first Node acc to node number
+        public void createMultiSet(createNode parent ,int countNodeNumber,String name[] ,String address[] ,long PhoneNo[] ,long MobileNo[] ,float Value[] ){
+            createNode obj[countNodeNumber] = new createNode();
+            for(int i = 0 ; i < countNodeNumber ; i++){
+            obj[i].date = new Date().getCurrentDate();
+            obj[i].data.setName(name[i]);
+            obj[i].data.setAddress(address[i]);
+            obj[i].data.setPhoneNo(PhoneNo[i]);
+            obj[i].data.setMobileNo(MobileNo[i]);
+            obj[i].data.setValue(Value[i]);
+            obj[i].nodeId = generateNodeId(1);
+            obj[i].nodeNumber = generateNodeNumber();
+            obj[i].referenceNodeId = parent;
+            obj[i].referenceChildNode = parent;
+            
+            parent.childNodeId[i] = obj[i].nodeId;
+        }
+        }
+        
+        
+        //3 add new node to any node;
+        public void createNewNodeToAny(createNode Node , String name, String address , long mobileNo , long phoneNo , float value){
+            createNode obj = new createNode();
+            obj.date = new Date().getCurrentDate();
+            obj.data.setName(name);
+            obj.data.setAddress(address);
+            obj.data.setPhoneNo(phoneNo);
+            obj.data.setMobileNo(MobileNo);
+            obj.data.setValue(Value);
+            obj.nodeId = generateNodeId(1);
+            obj.nodeNumber = generateNodeNumber();
+            obj.referenceNodeId = Node;
+            obj.referenceChildNode = Node;
+            int n = parent.childNode.size();
+            parent.childNodeId[++n] = obj.nodeId;
+        }
+    }
+    
+    
+}
